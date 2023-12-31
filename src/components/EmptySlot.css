@@ -1,0 +1,10 @@
+/* filename src/components/EmptySlot.css */
+/* EmptySlot component styles */
+.empty-slot {
+    width: 100px;
+    height: 100px;
+    background-image: url('../assets/molehill.png'); /* Ensure this URL points to your molehill image asset */
+    background-size: cover;
+    border: none;
+  }
+  

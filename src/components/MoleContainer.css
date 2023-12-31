@@ -1,0 +1,9 @@
+/* filename src/components/MoleContainer.css */
+/* MoleContainer component styles */
+.mole-container {
+    width: 100px; /* Adjust to match mole image size */
+    height: 100px; /* Adjust to match mole image size */
+    margin: 10px; /* Add space between containers */
+    display: inline-block; /* Align containers in a row */
+  }
+  
