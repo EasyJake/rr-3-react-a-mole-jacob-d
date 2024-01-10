@@ -1,15 +1,16 @@
 /* filename src/components/Mole.css */
 .mole-container {
-  transition: transform 0.3s ease;
-  transform: translateY(100%); /* Start hidden */
-}
-
-.mole-container.visible {
-  transform: translateY(0); /* End visible */
-}
-
-.mole {
-  width: 100px; /* Adjust size as needed */
-  user-select: none; /* Prevents user from selecting the image text on drag */
-  pointer-events: none; /* Ensures that the img element doesn't capture clicks */
-}
+    transition: transform 0.3s ease;
+    transform: translateY(100%); /* Start hidden */
+  }
+  
+  .mole-container.visible {
+    transform: translateY(0); /* End visible */
+  }
+  
+  .mole {
+    width: 100px; /* Adjust size as needed */
+    user-select: none; /* Prevents user from selecting the image text on drag */
+    pointer-events: none; /* Ensures that the img element doesn't capture clicks */
+  }
+  
