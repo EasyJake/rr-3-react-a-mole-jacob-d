@@ -1,16 +1,47 @@
-/* filename src/App.css */
-/* App component styles */
+/* This CSS file contains the styles for the main app component. 
+It defines the layout, colors, animations, and responsive behaviors. */
+
 .App {
-    text-align: center;
+  text-align: center;
+}
+/* General styling for the App component. */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+/* Styling for the logo, including size and disabling pointer events. */
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
   }
-  
-  .game-board {
-    margin-top: 20px;
-    width: 330px; /* Width based on mole container size and margin */
-    margin-left: auto;
-    margin-right: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 100px); /* Creates a 3x3 grid layout */
-    grid-gap: 10px; /* Space between grid items */
+}
+/* Media query for applying spinning animation to the logo only if the user has no preference for reduced motion. */
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+/* Styling for the App header, including layout, color, and font settings. */
+
+.App-link {
+  color: #61dafb;
+}
+/* Styling for links in the App, setting the color. */
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Keyframes for the spinning logo animation. */

@@ -1,28 +1,28 @@
-// filename src/App.js
-import React, { useState } from 'react';
-import MoleContainer from './components/MoleContainer';
-import './App.css';
+// This file serves as the entry point for the React application. 
+// It sets up the main structure, imports necessary components and CSS, 
+// manages the score state, and generates the molehill components.
+
+import "./App.css"; // Importing the CSS for styling.
+import { useState } from "react"; // Importing useState hook from React for state management.
+import MoleContainer from "./components/MoleContainer"; // Importing the MoleContainer component.
 
 function App() {
-  const [score, setScore] = useState(0);
+  let [score, setScore] = useState(0); // State to keep track of the score.
 
-  // Increment score when a mole is whacked
-  const handleMoleWhacked = () => {
-    setScore(prevScore => prevScore + 1);
+  const createMoleHill = () => {
+    let hills = [];
+    for (let i = 0; i < 9; i++) {
+      // Creating 9 MoleContainers, each with a unique key.
+      hills.push(<MoleContainer key={i} setScore={setScore} score={score} />);
+    }
+    return <div>{hills}</div>; // Returning a div containing all MoleContainers.
   };
-
-  // Generate nine MoleContainers and pass the score handler to them
-  const moleHills = Array.from({ length: 9 }, (_, i) => (
-    <MoleContainer key={i} onMoleWhacked={handleMoleWhacked} />
-  ));
 
   return (
     <div className="App">
-      <h1>React-A-Mole!</h1>
-      <h2>{score}</h2> {/* Display the score */}
-      <div className="game-board">
-        {moleHills}
-      </div>
+      <h1>React-A-Mole!</h1> // Displaying the title.
+      {score} // Displaying the current score.
+      {createMoleHill()} // Rendering the MoleHill components.
     </div>
   );
 }

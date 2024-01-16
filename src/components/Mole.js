@@ -1,7 +1,6 @@
 // filename src/components/Mole.js
 import React from 'react';
 import moleImage from '../assets/mole.png';
-import './Mole.css';
 
 function Mole() {
   return (
@@ -12,3 +11,9 @@ function Mole() {
 }
 
 export default Mole;
+
+
+
+// import { useEffect } from 'react';
+// import moleImg from '../mole.png'; // Importing the mole image.
+

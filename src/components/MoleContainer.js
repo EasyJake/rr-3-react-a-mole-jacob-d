@@ -1,30 +1,24 @@
-// filename src/components/MoleContainer.js
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Mole from './Mole';
 import EmptySlot from './EmptySlot';
-import './MoleContainer.css';
 
-function MoleContainer() {
-  const [isMoleVisible, setIsMoleVisible] = useState(false);
+const MoleContainer = (props) => {
+    let [theMole, setTheMole] = useState(false); // State to determine whether a mole is present or not.
 
-  // Logic to toggle the mole's visibility
-  const showMole = () => {
-    setIsMoleVisible(true);
-    // Hide the mole after a random time
-    setTimeout(() => setIsMoleVisible(false), Math.random() * 3000 + 1000);
-  };
+    const handleClick = (e) => {
+        props.setScore(props.score + 1); // Increases the score upon mole click.
+        setTheMole(false); // Hides the mole after being clicked.
+    };
 
-  // Trigger mole appearance randomly
-  React.useEffect(() => {
-    const timerId = setInterval(showMole, Math.random() * 3000 + 2000);
-    return () => clearInterval(timerId);
-  }, []);
+    let displayMole = theMole ? <Mole setScore={props.setScore} toggle={setTheMole} handleClick={handleClick} /> 
+                              : <EmptySlot toggle={setTheMole} />;
+    // Determines whether to show the Mole or an EmptySlot.
 
-  return (
-    <div className="mole-container" onClick={() => setIsMoleVisible(false)}>
-      {isMoleVisible ? <Mole /> : <EmptySlot />}
-    </div>
-  );
-}
+    return (
+        <div style={{'display': 'inline-block', 'width': '30vw'}}>
+            {displayMole}
+        </div>
+    );
+};
 
 export default MoleContainer;
