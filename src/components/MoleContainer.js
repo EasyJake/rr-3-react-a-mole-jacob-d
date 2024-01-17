@@ -1,24 +1,32 @@
-import { useState } from 'react';
-import Mole from './Mole';
-import EmptySlot from './EmptySlot';
+// Filename MoleContainer.js
 
-const MoleContainer = (props) => {
-    let [theMole, setTheMole] = useState(false); // State to determine whether a mole is present or not.
+import React, { useState } from "react"; //from instructions
+import Mole from "./Mole"; //importing mole to use it
+import EmptySlot from "./EmptySlot"; //importing empty slot to use it
 
-    const handleClick = (e) => {
-        props.setScore(props.score + 1); // Increases the score upon mole click.
-        setTheMole(false); // Hides the mole after being clicked.
-    };
+function MoleContainer({ setScore, score }) {
+  //from instructions
+  const [displayMole, setDisplayMole] = useState(false); //from instructions
 
-    let displayMole = theMole ? <Mole setScore={props.setScore} toggle={setTheMole} handleClick={handleClick} /> 
-                              : <EmptySlot toggle={setTheMole} />;
-    // Determines whether to show the Mole or an EmptySlot.
+  const whackEm = () => {
+    //from instructions
+    setDisplayMole(false);
+    setScore((prevScore) => prevScore + 1); //from instructions
+    //from instructions
+  };
 
-    return (
-        <div style={{'display': 'inline-block', 'width': '30vw'}}>
-            {displayMole}
-        </div>
-    );
-};
+  const displayMoleComponent = displayMole ? (
+    <Mole setDisplayMole={setDisplayMole} whackEm={whackEm} />
+  ) : (
+    <EmptySlot setDisplayMole={setDisplayMole} />
+  ); //from instructions
+
+  return (
+    <div className="MoleContainer">
+      {/* <h2>MoleContainer</h2> */}
+      {displayMoleComponent}
+    </div>
+  );
+}
 
 export default MoleContainer;

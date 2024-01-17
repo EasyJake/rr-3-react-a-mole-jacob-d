@@ -1,19 +1,32 @@
-// filename src/components/Mole.js
-import React from 'react';
-import moleImage from '../assets/mole.png';
+// Filename Mole.js
 
-function Mole() {
-  return (
-    <div className="mole">
-      <img src={moleImage} alt="Mole" />
-    </div>
-  );
+
+import {useEffect} from 'react'
+import moleImg from '../images/mole.png'
+
+function Mole(props){
+    useEffect(() => {
+        // THIS IS THE VALUE THAT ADJUSTS MOLE DURATION Math.ceil(Math.random() * 1999
+        // AROUND 2000 SEEMS PLAYABLE
+        // LOWERING NUMBER INCREASES THE SPEED OF THE OPPONENTS
+    
+       
+        let randSeconds = Math.ceil(Math.random() * 1999
+        )
+        let timer = setTimeout(() => {
+            props.setDisplayMole(false)
+        }, randSeconds)
+        return () => clearTimeout(timer)
+    })
+
+    return (
+        <div>
+            <img 
+            src={moleImg}
+            onClick={props.whackEm} />
+        </div>
+    )
 }
 
-export default Mole;
 
-
-
-// import { useEffect } from 'react';
-// import moleImg from '../mole.png'; // Importing the mole image.
-
+export default Mole
